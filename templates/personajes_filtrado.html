@@ -1,1 +1,62 @@
+{% extends "base.html" %}
 
+{% block title %}Filtrado de Personajes{% endblock %}
+{% block titulo %}Personajes{% endblock %}
+{% block contenido %}
+<form method="post" action="{{ url_for('personajesV2') }}">
+  <input type="text" name="buscar_personaje" placeholder="Buscar personaje..." value="{{ search_query }}" onkeyup="actualizarFormulario(event)">
+  
+  <select name="año_filtro" onchange="actualizarFormulario(event)">
+    <option value="">Todos los años</option>
+    {% for año in años %}
+      <option value="{{ año }}" {% if año == año_filtro %}selected{% endif %}>{{ año }}</option>
+    {% endfor %}
+  </select>
+
+  <button type="submit">Buscar</button>
+
+</form>
+
+{% for personaje in personajes %}
+  <!-- Mostrar información del personaje -->
+{% endfor %}
+
+<script>
+  function actualizarFormulario(event) {
+    var formulario = event.target.form;
+    formulario.submit();
+  }
+</script>
+
+<br>
+
+<table class="tabla">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Detalles</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% if personajes %}
+        {% for personaje in personajes %}
+          <tr>
+              <td>{{ personaje.id }}</td>
+              <td>{{ personaje.name }}</td>
+              <td><a href="{{ url_for('detalle', personaje_id=personaje.id) }}">Detalles</a></td>
+            </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">No se encontraron personajes</td>
+        </tr>
+      {% endif %}
+  </tbody>
+</table>
+
+  <br>
+  <br>
+  <br>
+  
+{%endblock%}

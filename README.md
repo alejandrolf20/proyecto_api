@@ -1,1 +1,4 @@
-# proyecto_api
+Este proyecto utiliza la api de Marvel para buscar y filtrar por el nombre de los personajes.
+Tendremos dos tipos de búsqueda, una que se hará a través de un buscador en el que indicaremos el nombre de un personaje o alguna letra que contenga el nombre de dicho personaje; la otra búsqueda se hará igual que la anterior, pero podremos añadirle un filtrado de años que se basará en el año en el que los personajes fueron creados.
+
+Ambos tipos de búsqueda mostrarán una tabla con el ID, el nombre y un linck llamado "Detalles" que mostrará más información sobre las apariciones que ha tenido ese personaje a lo largo de la saga Marvel, ya sea en cómics, películas o otras historias; además habrá un enlace a una página externa que nos mostrará más información sobre los cómics en los que dicho personaje aparece.

@@ -2,7 +2,7 @@ import requests,json
 from flask import Flask, render_template, abort, redirect, request
 
 app = Flask(__name__)
-url = "https://gateway.marvel.com/v1/public/characters?apikey="
+url = "https://gateway.marvel.com/v1/public/characters?apikey=91a32b0a5fa09d06e763a3a99d03f85b&ts=1715167907.7655444&hash=af1eda9eac0159513f75c81f27eae676"
 
 @app.route('/')
 def inicio():
@@ -29,7 +29,7 @@ def listapersonajes():
 
     return render_template('listapersonajes.html', personajes=lista_personajes_a_mostrar)
 
-@app.route('/personajes_filtrado', methods=['GET', 'POST'])
+@app.route('/personajesV2', methods=['GET', 'POST'])
 def personajesV2():
     buscar_personaje = request.form.get('buscar_personaje')
     año_filtro = request.form.get('año_filtro')
@@ -59,11 +59,11 @@ def personajesV2():
 
     lista_años.sort()
 
-    return render_template('personajes_filtrado.html', personajes=lista_personajes_a_mostrar, años=lista_años, buscar_personaje=buscar_personaje, año_filtro=año_filtro)
+    return render_template('personajes_V2.html', personajes=lista_personajes_a_mostrar, años=lista_años, buscar_personaje=buscar_personaje, año_filtro=año_filtro)
 
 @app.route('/detalle/<personaje_id>')
 def detalle(personaje_id):
-    detalle_url = f"https://gateway.marvel.com:443/v1/public/characters/{personaje_id}?apikey="
+    detalle_url = f"https://gateway.marvel.com:443/v1/public/characters/{personaje_id}?apikey=91a32b0a5fa09d06e763a3a99d03f85b&ts=1715167907.7655444&hash=af1eda9eac0159513f75c81f27eae676"
     respuesta = requests.get(detalle_url)
     detalle_personaje = respuesta.json()
 

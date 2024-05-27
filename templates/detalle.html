@@ -1,1 +1,50 @@
+{% extends "base.html" %}
 
+{% block titulo %}{{ personaje.name }}{% endblock %}
+
+{% block contenido %}
+  <div class="detalle-personaje">
+    <!-- <h2>{{ personaje.name }}</h2> -->
+    <!-- <img src="{{ personaje.thumbnail.path }}/standard_fantastic.{{ personaje.thumbnail.extension }}" alt="{{ personaje.name }}"> -->
+    <img src="{{ imagen_personaje }}" alt="{{ personaje.name }}">
+
+    <h3>Descripción</h3>
+    <p>{{ personaje.description }}</p>
+
+    <h3>Comics</h3>
+    <ul>
+      {% for comic in comics %}
+        <p>{{ comic }}</p>
+      {% endfor %}
+    </ul>
+    
+    <h3>Series</h3>
+    <ul>
+      {% for serie in series %}
+        <p>{{ serie }}</p>
+      {% endfor %}
+    </ul>
+    
+    <h3>Historias</h3>
+    <ul>
+      {% for historia in historias %}
+        <p>{{ historia }}</p>
+      {% endfor %}
+    </ul>
+    
+    <h3>Eventos</h3>
+    <ul>
+      {% for evento in eventos %}
+        <p>{{ evento }}</p>
+      {% endfor %}
+    </ul>
+    
+
+    <h3>Enlaces</h3>
+    <ul>
+      {% for url in personaje.urls %}
+        <p><a href="{{ url.url }}">{{ url.type }}</a></p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

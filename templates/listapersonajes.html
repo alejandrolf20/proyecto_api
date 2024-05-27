@@ -1,1 +1,32 @@
+{%extends "base.html" %}
 
+{%block tittle%}Lista de Personajes{%endblock%}
+{%block titulo%}Lista de Personajes{%endblock%}
+{%block contenido%}
+
+<table class="tabla">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Detalles</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% if personajes %}
+        {% for personaje in personajes %}
+          <tr>
+              <td>{{ personaje.id }}</td>
+              <td>{{ personaje.name }}</td>
+              <td><a href="{{ url_for('detalle', personaje_id=personaje.id) }}">Detalles</a></td>
+          </tr>
+        {% endfor %}
+      {% else %}
+        <tr>
+          <td colspan="3">No se han encontrado personajes</td>
+        </tr>
+      {% endif %}
+  </tbody>
+</table>
+
+{%endblock%}

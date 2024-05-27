@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="icon" href="/static/img/atlasico.jpg" type="image/x-icon">
+	<!-- css -->
+	<link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet" />
+	<link href="{{url_for('static', filename='css/fancybox/jquery.fancybox.css')}}" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/jcarousel.css')}}" rel="stylesheet" />
+	<link href="{{url_for('static', filename='css/flexslider.css')}}" rel="stylesheet" />
+	<link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+
+
+<!-- {{url_for('static', filename='css/fancybox/jquery.fancybox.css')}}
+{{url_for('static', filename='css/jcarousel.css')}}
+{{url_for('static', filename='css/flexslider.css')}}
+{{url_for('static', filename='css/style.css')}} -->
+
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<!-- start header -->
+		<header>
+			<nav class="navbar navbar-default navbar-static-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas"
+							data-target="#navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<div class="navbar-collapse offcanvas" id="navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li><a href="/">Inicio</a></li>
+							<li><a href="/personajes">Buscar</a></li>
+							<li><a href="/personajesV2">Listado</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<!-- end header -->
+
+		<section class="callaction">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="aligncenter">
+							<h1 class="aligncenter">{% block titulo %}{% endblock %}</h1><span
+								class="clear spacer_responsive_hide_mobile "
+								style="height:13px;display:block;"></span>{% block contenido %}{% endblock %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="aligndown">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">Contacto</h5>
+							<p>
+							<strong>Alejandro Liáñez Frutos</strong><br />
+								<i class="icon-phone"></i> 600647526<br />
+								<i class="icon-envelope-alt"></i> alejandroliafru@gmail.com
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">Centro de Estudios</h5>
+							<p>
+							I.E.S. Gonzalo Nazareno
+							C/ Las Botijas
+							Dos Hermanas, Sevila
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">Curso</h5>
+							<p>
+							1º Administración de Sistemas Informáticos y Redes<br />
+							Lenguajes de Marcas
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="widget">
+							<h5 class="widgetheading">Datos de interés</h5>
+							<p>
+							Tengo el título Bachillerato de Ciencias, el de B1 de Francés y el de Inglés. 	
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="sub-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="copyright">
+								<p>
+									<span>&copy; Plantilla
+										por </span><a href="http://webthemez.com" target="_blank">WebThemez</a>
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<ul class="social-network">
+								<li>
+									<a href="https://www.instagram.com/alejandrolf20/" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="https://github.com/alejandrolf20" data-placement="top" title="Github"><i class="fa fa-github"></i></a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/in/alejandro-lia%C3%B1ez-frutos-3b7013263/" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+	<!-- javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/jquery.easing.1.3.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery.fancybox.pack.js"></script>
+	<script src="/static/js/jquery.fancybox-media.js"></script>
+	<script src="/static/js/portfolio/jquery.quicksand.js"></script>
+	<script src="/static/js/portfolio/setting.js"></script>
+	<script src="/static/js/jquery.flexslider.js"></script>
+	<script src="/static/js/animate.js"></script>
+	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/owl-carousel/owl.carousel.js"></script>
+</body>
+</html>

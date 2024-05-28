@@ -2,7 +2,7 @@ import requests,json
 from flask import Flask, render_template, abort, redirect, request
 
 app = Flask(__name__)
-url = "https://gateway.marvel.com/v1/public/characters?apikey=91a32b0a5fa09d06e763a3a99d03f85b&ts=1715167907.7655444&hash=af1eda9eac0159513f75c81f27eae676"
+url = "https://gateway.marvel.com/v1/public/characters?apikey=1eee7e56621070b96cd2c5e560e1869b&ts=1716881161.891844&hash=3d5322c358d18bfa64214884d6f6d8ed"
 
 @app.route('/')
 def inicio():
@@ -70,7 +70,7 @@ def personajesV2():
 
 @app.route('/detalle/<personaje_id>')
 def detalle(personaje_id):
-    detalle_url = f"https://gateway.marvel.com:443/v1/public/characters/{personaje_id}?apikey=91a32b0a5fa09d06e763a3a99d03f85b&ts=1715167907.7655444&hash=af1eda9eac0159513f75c81f27eae676"
+    detalle_url = f"https://gateway.marvel.com:443/v1/public/characters/{personaje_id}?apikey=1eee7e56621070b96cd2c5e560e1869b&ts=1716881161.891844&hash=3d5322c358d18bfa64214884d6f6d8ed"
     respuesta = requests.get(detalle_url)
     detalle_personaje = respuesta.json()
 

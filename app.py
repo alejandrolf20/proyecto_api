@@ -12,9 +12,11 @@ def inicio():
 def personajes():
     return render_template("personajes.html")
 
-@app.route('/listapersonajes', methods=["POST"])
+@app.route('/listapersonajes', methods=["GET", "POST"])
 def listapersonajes():
-    buscar_personaje = request.form.get('busqueda')
+    buscar_personaje = request.form.get('busqueda') if request.method == 'POST' else request.args.get('busqueda')
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
 
     respuesta = requests.get(url)
     personajes = respuesta.json()
@@ -22,12 +24,17 @@ def listapersonajes():
     lista_personajes_a_mostrar = []
     if buscar_personaje:
         for personaje in personajes['data']['results']:
-            if buscar_personaje.lower() in personaje['name'].lower():
+            if personaje['name'].lower().startswith(buscar_personaje.lower()):
                 lista_personajes_a_mostrar.append(personaje)
     else:
         lista_personajes_a_mostrar = personajes['data']['results']
 
-    return render_template('listapersonajes.html', personajes=lista_personajes_a_mostrar)
+    total = len(lista_personajes_a_mostrar)
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_personajes = lista_personajes_a_mostrar[start:end]
+
+    return render_template('listapersonajes.html', personajes=paginated_personajes, page=page, total=total, per_page=per_page, busqueda=buscar_personaje)
 
 @app.route('/personajesV2', methods=['GET', 'POST'])
 def personajesV2():
